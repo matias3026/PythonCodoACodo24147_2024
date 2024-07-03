@@ -1,0 +1,72 @@
+<!-- vscode-skip -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de administrador</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleAdmin.css') }}">
+</head>
+<body>
+    <div class="bienvenido-salida">
+        <h1>Hola, {{ nombre_usuario }}. Bienvenido al panel de administrador.</h1>
+
+        <a href="/" id="logout">❌ <br>Cerrar <br> Sesión</a>
+
+    </div>
+    
+    <div class="container">
+        <div class="form-container">
+            <h2>Agregar Producto</h2>
+            <form action="{{ url_for('add_product') }}" method="POST">
+                <label for="nombre_producto">Nombre:</label>
+                <input type="text" id="nombre_producto" name="nombre_producto" required><br>
+                <label for="categoria_producto">Categoría:</label>
+                <input type="text" id="categoria_producto" name="categoria_producto"><br>
+                <label for="descripcion_producto">Descripción:</label>
+                <input type="text" id="descripcion_producto" name="descripcion_producto"><br>
+                <label for="precio">Precio:</label>
+                <input type="text" id="precio" name="precio" required><br>
+                <button type="submit" class="btn">Agregar</button>
+                
+            </form>
+        </div>
+        <div class="table-container">
+            <h2>Lista de Productos</h2>
+            <div class="filters">
+                <input type="text" id="searchBox" placeholder="Buscar por nombre">
+                <select id="categoryFilter">
+                    <option value="">Todas las Categorías</option>
+                    {% for categoria in categorias %}
+                    <option value="{{ categoria }}">{{ categoria }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+                {% for producto in productos %}
+                <tr id="row-{{ producto.id_producto }}" data-category="{{ producto.categoria_producto }}" data-name="{{ producto.nombre_producto | lower }}">
+                    <td contenteditable="true" class="editable" data-column="nombre_producto">{{ producto.nombre_producto }}</td>
+                    <td contenteditable="true" class="editable" data-column="categoria_producto">{{ producto.categoria_producto }}</td>
+                    <td contenteditable="true" class="editable" data-column="descripcion_producto">{{ producto.descripcion_producto }}</td>
+                    <td contenteditable="true" class="editable" data-column="precio">{{ producto.precio }}</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="saveRow({{ producto.id_producto | tojson }})">Guardar</button>
+                        <a href="{{ url_for('delete_product', id=producto.id_producto) }}" class="btn btn-delete">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/scriptAdmin.js') }}"></script>
+</body>
+</html>

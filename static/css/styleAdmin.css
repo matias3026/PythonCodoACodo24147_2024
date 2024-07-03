@@ -1,0 +1,137 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.bienvenido-salida{
+    width: 100%;
+    min-height:10hv ;
+    background-color:#d4c6c6;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+
+h1 {
+    text-align: center;
+    color: #6b4f4f;
+    margin-top: 20px;
+}
+
+a#logout {
+    color: red;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.form-container, .table-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 45%;
+}
+
+h2 {
+    color: #6b4f4f;
+    border-bottom: 2px solid #6b4f4f;
+    padding-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #6b4f4f;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button.btn {
+    background-color: #6b4f4f;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button.btn:hover {
+    background-color: #8b5e5e;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #6b4f4f;
+}
+
+td.contenteditable {
+    background-color: #fffbe6;
+}
+
+a.btn-delete {
+    color: #fff;
+    background-color: #d9534f;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+a.btn-delete:hover {
+    background-color: #c9302c;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #6b4f4f;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.filters input, .filters select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
