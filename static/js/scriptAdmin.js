@@ -8,7 +8,7 @@ function saveRow(id) {
         data[cell.getAttribute('data-column')] = cell.innerText;
     }
 
-    fetch('/edit_product/' + id, {
+    fetch('https://matias6277.pythonanywhere.com/edit_product/' + id, {  // Cambia la URL por la correcta
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
